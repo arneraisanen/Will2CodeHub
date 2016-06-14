@@ -1,0 +1,1 @@
+SQLSTATE[28000] [1045] Access denied for user 'conifer_user'@'localhost' (using password: YES)

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+	<div style="width: 900px; margin: 30px auto;">
+
+	    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+			    	<img class="first-slide" src="gif-images/1-Create-Print-Catalog.gif" alt="First slide">
+			  	</div>
+				<div class="item">
+					<img class="second-slide" src="gif-images/2-Refresh-Page.gif" alt="Second slide">
+			  	</div>
+			  	<div class="item">
+			    	<img class="third-slide" src="gif-images/3-SpecSheet.gif" alt="Third slide">	
+			    </div>
+				<div class="item">
+					<img class="second-slide" src="gif-images/4-Index-Catalog.gif" alt="Fourth slide">
+			  	</div>
+			  	<div class="item">
+			    	<img class="third-slide" src="gif-images/5-Catalog-Images.gif" alt="Fifth slide">	
+			    </div>
+			</div>
+		</div>
+	
+		<div id="slider_captions">
+	    	<div>
+	        	<div id="caption-0" class="carousel-caption">
+	            	<p>Line 1, gif 1<br />
+				    Line 2, gif 1<br />
+				    Line 3, gif 1</p>
+	            </div>
+	            <div id="caption-1" class="carousel-caption">
+	                <p>Line 1, gif 2<br />
+				    Line 2, gif 2<br />
+				    Line 3, gif 2</p>
+	            </div>
+	            <div id="caption-2" class="carousel-caption">
+	            	<p>Line 1, gif 3<br />
+				    Line 2, gif 3<br />
+				    Line 3, gif 3</p>
+	            </div>
+	            <div id="caption-3" class="carousel-caption">
+	            	<p>Line 1, gif 4<br />
+				    Line 2, gif 4<br />
+				    Line 3, gif 4</p>
+	            </div>
+	            <div id="caption-4" class="carousel-caption">
+	            	<p>Line 1, gif 5<br />
+				    Line 2, gif 5<br />
+				    Line 3, gif 5</p>
+	            </div>
+	        </div>
+	        
+	        <div style="margin:10px;float:right; width:100px;">
+		        <a style="float:left; margin-top: -72px;" href="#myCarousel" role="button" data-slide="prev">
+			        <span class="glyphicon glyphicon-chevron-left arrow-left" aria-hidden="true"></span>
+			        <span class="sr-only">Previous</span>
+
+			    </a>
+			    
+			    <div id="carousel-index" style="float:left;font-weight: 600; margin-left:35px;text-align:center; margin-top:-72px; font-size:15px;">1 / 5</div>
+		    	
+		    	<a style="float:right; margin-top: -72px;" href="#myCarousel" role="button" data-slide="next">
+			        <span class="glyphicon glyphicon-chevron-right arrow-right" aria-hidden="true"></span>
+			        <span class="sr-only">Next</span>
+			    </a>
+			</div>          
+	    </div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+		$('#myCarousel').on('slide.bs.carousel', function (evt) {
+		    var step = $(evt.relatedTarget).index();
+		    $('#slider_captions .carousel-caption:not(#caption-' + step + ')').fadeOut('fast', function () {
+		        $('#caption-' + step).fadeIn();
+		        step_val = step + 1;
+		        $('#carousel-index').text(step_val + ' / 5');
+		    });
+		});
+	</script>
+</body>
+</html>
