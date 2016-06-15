@@ -1,0 +1,57 @@
+.player-wrapper {
+    width: 860px;
+    margin: 50px auto;
+    background-color: black;
+    padding-left: 10px;
+    position: relative;
+}
+
+.player-wrapper h1 {
+    font-family: Tahoma;
+    color: #222;
+    text-align: center;
+}
+
+.player-title {
+    text-align: center;
+    font-family: verdana, tahoma, arial;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+.player-logo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    line-height: 10px;
+    text-decoration: none;
+}
+
+.player-logo img {
+    border: 0;
+}
+
+.social-block {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 10;
+}
+
+.social-block img {
+    border: 0;
+}
+
+.error_container {
+	background-color: black; 
+	position: absolute; 
+	text-align: center; 
+	top: 82px; 
+	left: 0px; 
+	width: 612px;
+	display:none;
+}

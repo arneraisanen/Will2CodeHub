@@ -1,0 +1,146 @@
+<?php
+$doc_root = $_SERVER['DOCUMENT_ROOT'];
+include($doc_root.'/DataTables/get_log_data.php');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+
+	<title>DataTables example - Deferred rendering for speed</title>
+	<link rel="stylesheet" type="text/css" href="media/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="resources/syntax/shCore.css">
+	<link rel="stylesheet" type="text/css" href="resources/demo.css">
+	<style type="text/css" class="init">
+
+	</style>
+	<script type="text/javascript" language="javascript" src="media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="examples/resources/syntax/shCore.js"></script>
+	<script type="text/javascript" language="javascript" src="examples/resources/demo.js"></script>
+	<script type="text/javascript" language="javascript" class="init">
+
+$(document).ready(function() {
+	$('#example').dataTable( {
+		"ajax": "data/arrays.txt",
+		"deferRender": true
+	} );
+} );
+
+	</script>
+</head>
+
+<body class="dt-example">
+	<div class="container">
+		<section>
+			<h1>Apache Access Log Viewer<span>  (last 1000 lines from the log)</span></h1>
+
+			<div class="info">
+				<p>This page takes a copy of the Apache log</p>
+
+				<p>When deferred rendering is enabled, rather than having DataTables create all <code class="tag" title="HTML tag">TR</code> and <code class="tag" title=
+				"HTML tag">TD</code> nodes required for the table when the data is loaded, DataTables will only create the nodes required for each individual row at the time of
+				that row being drawn on the page (these nodes are then retained in case they are needed again so they aren't created multiple times). This can give a significant
+				performance increase, since a lot less work is done at initialisation time.</p>
+
+				<p>The example below shows DataTables with deferred rendering enabled. For this small example you'll likely notice no difference, but larger tables can benefit
+				significantly from simply enabling this parameter.</p>
+			</div>
+
+			<table id="example" class="display" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>IP</th>
+						<th>UID</th>
+						<th>UName</th>
+						<th>Timestamp</th>
+						<th>Client Request Line</th>
+						<th>Status</th>
+						<th>Size</th>
+						<th>Referrer</th>
+						<th>User Agent</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<th>IP</th>
+						<th>UID</th>
+						<th>UName</th>
+						<th>Timestamp</th>
+						<th>Client Request Line</th>
+						<th>Status</th>
+						<th>Size</th>
+						<th>Referrer</th>
+						<th>User Agent</th>
+					</tr>
+				</tfoot>
+			</table>
+
+			<ul class="tabs">
+				<li class="active">Javascript</li>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>Ajax</li>
+				<li>Server-side script</li>
+			</ul>
+
+			<div class="tabs">
+				<div class="js">
+					<p>The Javascript shown below is used to initialise the table shown in this example:</p><code class="multiline language-js">$(document).ready(function() {
+	$('#example').dataTable( {
+		&quot;ajax&quot;: &quot;data/arrays.txt&quot;,
+		&quot;deferRender&quot;: true
+	} );
+} );</code>
+
+					<p>In addition to the above code, the following Javascript library files are loaded for use in this example:</p>
+
+					<ul>
+						<li><a href="../../media/js/jquery.js">../../media/js/jquery.js</a></li>
+						<li><a href="../../media/js/jquery.dataTables.js">../../media/js/jquery.dataTables.js</a></li>
+					</ul>
+				</div>
+
+				<div class="table">
+					<p>The HTML shown below is the raw HTML table element, before it has been enhanced by DataTables:</p>
+				</div>
+
+				<div class="css">
+					<div>
+						<p>This example uses a little bit of additional CSS beyond what is loaded from the library files (below), in order to correctly display the table. The
+						additional CSS used is shown below:</p><code class="multiline language-css"></code>
+					</div>
+
+					<p>The following CSS library files are loaded for use in this example to provide the styling of the table:</p>
+
+					<ul>
+						<li><a href="../../media/css/jquery.dataTables.css">../../media/css/jquery.dataTables.css</a></li>
+					</ul>
+				</div>
+
+				<div class="ajax">
+					<p>This table loads data by Ajax. The latest data that has been loaded is shown below. This data will update automatically as any additional data is
+					loaded.</p>
+				</div>
+
+				<div class="php">
+					<p>The script used to perform the server-side processing for this table is shown below. Please note that this is just an example script using PHP. Server-side
+					processing scripts can be written in any language, using <a href="//datatables.net/manual/server-side">the protocol described in the DataTables
+					documentation</a>.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<section>
+		<div class="footer">
+			<div class="gradient"></div>
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>
